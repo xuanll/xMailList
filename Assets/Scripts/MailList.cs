@@ -3,7 +3,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MialList : MonoBehaviour {
+public class MailList : MonoBehaviour {
 
 	GameObject delBtn;
 	GameObject mailScrollView;

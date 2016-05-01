@@ -5,12 +5,12 @@ using System.Collections;
 
 public class MialList : MonoBehaviour {
 
-	public GameObject delBtn;
-	public GameObject mailScrollView;
+	GameObject delBtn;
+	GameObject mailScrollView;
 
-	public GameObject markedBtn;
+	GameObject markedBtn;
 
-	public GameObject progressBar;
+	GameObject progressBar;
 
 	static int mailCount = 50;
 
@@ -92,6 +92,13 @@ public class MialList : MonoBehaviour {
 
 	void Awake()
 	{
+		delBtn = transform.Find("DelButton").gameObject;
+		mailScrollView = transform.Find("Outline/mailScrollView").gameObject;
+
+		markedBtn = transform.Find("MarkedButton").gameObject;
+
+		progressBar = transform.Find("Outline/ProgressBar").gameObject;
+
 
 		UIEventListener.Get (delBtn).onClick = OnDelCliked;
 

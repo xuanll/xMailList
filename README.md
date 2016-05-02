@@ -13,7 +13,7 @@ Unity使用NGUI制作的邮件列表程序，源于4月份的笔试题。目前�
 - Unity版本5.1.4f1个人版(Mac)
 
 ## 项目关键文件及注意点说明
-1. mailList.unity: 项目主场景，邮件列表的主要UI部分均在此处实现；由于要支持2.中的高度不同的邮件，因此在ScrollView下需要使用Table代替Grid;
+1. mailList.unity: 项目主场景，邮件列表的主要UI部分均在此处实现；由于要支持2.中的高度不同的邮件，因此在ScrollView下需要使用Table代替Grid;  
 ![](snap/hierarchy.png)
 2. mailItem.prefab: 邮件Item单项，有纯文本邮件和带图片邮件两种高度不同的样式;
 3. MailList.cs: 邮件的初始化、加载，模拟收到新邮件均在该脚本中进行，其中MailIte类用来代表邮件，mailBoxList存储所有收到的邮件;

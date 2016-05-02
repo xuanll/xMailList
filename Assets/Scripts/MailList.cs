@@ -36,8 +36,7 @@ public class MailList : MonoBehaviour {
 
 	void Update()
 	{
-		//simulate receive mail,
-		//[bug]to do: there's the bug when add new mail to the list, it appears the third place. The CustomSort didn't work...
+		//simulate receive mail
 		if(Time.realtimeSinceStartup % updateMailTime < 0.01f)
 		{
 			Debug.Log("Update Mail...");
@@ -48,9 +47,9 @@ public class MailList : MonoBehaviour {
 
 			//insert a mail
 			Transform table = mailScrollView.transform.Find("Table");
-			GameObject item = Instantiate(Resources.Load("mailItem") as GameObject); 
+			GameObject item = Instantiate(Resources.Load("mailItem") as GameObject);
 
-		
+
 			//random mail type: image or pure text
 
 			bool isPureText = Random.Range(0f, 1.0f) > 0.5f;
@@ -61,7 +60,7 @@ public class MailList : MonoBehaviour {
 			m.isPureText = isPureText;
 
 			m.arriveTime = rTime;
-			
+
 			mailBoxList.Add(m);
 			mailCount++;
 			newIndex++;
@@ -69,14 +68,14 @@ public class MailList : MonoBehaviour {
 			item.name = newIndex.ToString();
 
 			//set parent
-			
+
 			item.transform.SetParent(table);
 
 			item = updateMailContent(item, m);
-			
-			
+
+
 			item.transform.localScale = Vector3.one;
-			
+
 			UIEventListener.Get(item).onClick = OnMailItemClicked;
 
 			gameObject.transform.Find ("ReceiveAmount").GetComponent<UILabel> ().text = mailCount.ToString();
@@ -88,7 +87,7 @@ public class MailList : MonoBehaviour {
 
 
 	}
-	
+
 
 	void Awake()
 	{
@@ -112,7 +111,7 @@ public class MailList : MonoBehaviour {
 
 
 	}
-	
+
 
 	void InitMailBoxList()
 	{
@@ -133,7 +132,7 @@ public class MailList : MonoBehaviour {
 
 
 	}
-	
+
 
 	void Start()
 	{
@@ -154,7 +153,7 @@ public class MailList : MonoBehaviour {
 
 		for(int i = startFrom; i < startFrom + viewableCount && i < mailCount; i++)
 		{
-			GameObject item = Instantiate(Resources.Load("mailItem") as GameObject); 
+			GameObject item = Instantiate(Resources.Load("mailItem") as GameObject);
 
 
 			//set parent
@@ -182,7 +181,7 @@ public class MailList : MonoBehaviour {
 
 		gameObject.transform.Find ("ReceiveAmount").GetComponent<UILabel> ().text = mailCount.ToString();
 
-		//sort 
+		//sort
 		table.GetComponent<UITable> ().onCustomSort = CompareMail;
 
 		table.GetComponent<UITable>().repositionNow = true;
@@ -211,7 +210,7 @@ public class MailList : MonoBehaviour {
 
 		foreach(GameObject marked in markedList)
 		{
-			//to do 
+			//to do
 //			marked.SetActive(false);
 //			table.RemoveChild(marked.transform);
 
@@ -223,7 +222,7 @@ public class MailList : MonoBehaviour {
 		markedBtn.transform.Find ("Number").GetComponent<UILabel> ().text = "0";
 		gameObject.transform.Find ("ReceiveAmount").GetComponent<UILabel> ().text = mailCount.ToString();
 
-		table.repositionNow = true; 
+		table.repositionNow = true;
 
 	}
 
@@ -243,7 +242,7 @@ public class MailList : MonoBehaviour {
 
 		Debug.Log ("Marked amount: " + markedList.size);
 	}
-	
+
 
 	GameObject updateMailContent(GameObject mail, MailItem m)
 	{
@@ -258,11 +257,11 @@ public class MailList : MonoBehaviour {
 		else
 		{
 			mail.GetComponent<UISprite>().SetDimensions(1000, 300);
-			
+
 			mail.transform.Find("ImageGroup").gameObject.SetActive(true);
-			
+
 			int picShow = Random.Range(1, 4);
-			
+
 			//show random amount of pic
 			for(int j = 0; j< picShow; j++)
 			{
@@ -290,7 +289,7 @@ public class MailList : MonoBehaviour {
 		InitMailList (shownCount);
 		shownCount += viewableCount;
 	}
-	
+
 
 
 }

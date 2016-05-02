@@ -1,5 +1,6 @@
 # xMailList
-Unity使用NGUI制作的邮件列表程序，源于4月份的笔试题。目前是v0.5版本，待提升部分详见下文TODO部分。
+Unity使用NGUI制作的邮件列表程序，源于4月份的笔试题。目前是v0.5版本，待提升部分详见下文TODO部分。  
+![](snap/mailList_run.png)
 
 ## Feature
 - 支持不等高邮件
